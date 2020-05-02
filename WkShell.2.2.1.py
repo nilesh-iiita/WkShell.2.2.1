@@ -1,4 +1,3 @@
-#!i/usr/bin/env python
 __author__ = "Nilesh Kumar"
 __email__ = "nilesh.iiita@gmail.com"
 __copyright__ = "Copyright 2020, MIT License"
@@ -102,10 +101,10 @@ def wkshell(ref_dic_nodes, alpha = 0.5):
     filename = Java_ref_directory+"edges_num.csv"
 
     ##1-Read edges into the Graph
-    tic = time.clock()
+    tic = time.process_time()
 
 
-    #print('Start of #1 %f sec' % (time.clock() - tic))
+    #print('Start of #1 %f sec' % (time.process_time() - tic))
 
     G = nx.read_edgelist(filename,delimiter = ",")
     Nodes = G.number_of_nodes()
@@ -136,10 +135,10 @@ def wkshell(ref_dic_nodes, alpha = 0.5):
         List[a].append(i)
         List[b].append(i)
 
-    #print('Start of #3 %f sec' % (time.clock() - tic))
+    #print('Start of #3 %f sec' % (time.process_time() - tic))
     while G.number_of_nodes():
-        Time = (time.clock() - tic)
-        #print('Start of #3.1 %f sec' % (time.clock() - tic))
+        Time = (time.process_time() - tic)
+        #print('Start of #3.1 %f sec' % (time.process_time() - tic))
         for i in range(1,len(N_w)+1):
             i = str(i)
             we = 0
@@ -158,7 +157,7 @@ def wkshell(ref_dic_nodes, alpha = 0.5):
 
                 N_w[i] = int(alpha*Degree[str(i)] + (1-alpha)*we)
 
-        #print('Start of #4 %f sec' % (time.clock() - tic))
+        #print('Start of #4 %f sec' % (time.process_time() - tic))
         #Find lowest weight in N_w
         Min = min(N_w.items(), key=lambda x: x[1])[1]
         #5- Remove it in a shell
@@ -185,8 +184,8 @@ def wkshell(ref_dic_nodes, alpha = 0.5):
         for i in N_w:
             N_w[i] = 2147483647
         old_min = Min
-        #print((time.clock() - tic),(time.clock() - tic) - Time,G.number_of_nodes(),(Nodes-G.number_of_nodes())*100./Nodes,"%")
-        msg = (time.clock() - tic),(time.clock() - tic) - Time,G.number_of_nodes(),(Nodes-G.number_of_nodes())*100./Nodes,"%"
+        #print((time.process_time() - tic),(time.process_time() - tic) - Time,G.number_of_nodes(),(Nodes-G.number_of_nodes())*100./Nodes,"%")
+        msg = (time.process_time() - tic),(time.process_time() - tic) - Time,G.number_of_nodes(),(Nodes-G.number_of_nodes())*100./Nodes,"%"
         print(msg)
         sys.stdout.write("\033[F")
 
