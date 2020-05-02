@@ -187,6 +187,7 @@ def wkshell(ref_dic_nodes, alpha = 0.5):
         #print((time.clock() - tic),(time.clock() - tic) - Time,G.number_of_nodes(),(Nodes-G.number_of_nodes())*100./Nodes,"%")
         msg = (time.clock() - tic),(time.clock() - tic) - Time,G.number_of_nodes(),(Nodes-G.number_of_nodes())*100./Nodes,"%"
         print(msg)
+        sys.stdout.write("\033[F")
 
         
         
