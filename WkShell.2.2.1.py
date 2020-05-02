@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 __author__ = "Nilesh Kumar"
 __email__ = "nilesh.iiita@gmail.com"
 __copyright__ = "Copyright 2020, MIT License"
